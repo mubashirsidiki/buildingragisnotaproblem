@@ -42,10 +42,10 @@ export default function UploadPage() {
   const [results, setResults] = useState<ProcessingResult[]>([])
   const [errors, setErrors] = useState<string[]>([])
   const [config, setConfig] = useState<UploadConfig>({
-    chunking_mode: "semantic",
-    max_chunk_size: 1000,
+    chunking_mode: "sentence",
+    max_chunk_size: 1500,
     breakpoint_threshold_type: "percentile",
-    breakpoint_threshold_amount: 0.95,
+    breakpoint_threshold_amount: 95.0,
     chunk_overlap: 200,
     sentence_group_size: 3,
   })
@@ -270,7 +270,7 @@ export default function UploadPage() {
             <Card>
               <CardHeader>
                 <CardTitle>Processing Configuration</CardTitle>
-                <CardDescription>Customize how your PDFs are chunked and processed</CardDescription>
+                <CardDescription>Choose between semantic analysis or fixed-size chunking</CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div>
@@ -283,9 +283,8 @@ export default function UploadPage() {
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="semantic">Semantic</SelectItem>
-                      <SelectItem value="fixed">Fixed Size</SelectItem>
-                      <SelectItem value="sentence">Sentence-based</SelectItem>
+                      <SelectItem value="sentence">Sentence (Semantic)</SelectItem>
+                      <SelectItem value="length">Length (Fixed Size)</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
@@ -365,16 +364,16 @@ export default function UploadPage() {
               </CardHeader>
               <CardContent className="text-sm text-muted-foreground space-y-2">
                 <p>
-                  • <strong>Semantic chunking</strong> preserves meaning boundaries
+                  • <strong>Sentence mode</strong> uses AI to preserve meaning boundaries
                 </p>
                 <p>
-                  • <strong>Higher overlap</strong> improves context retention
+                  • <strong>Length mode</strong> creates fixed-size chunks quickly
                 </p>
                 <p>
-                  • <strong>Smaller chunks</strong> increase search precision
+                  • <strong>Sentence mode</strong> is default for best quality
                 </p>
                 <p>
-                  • <strong>Larger chunks</strong> provide more context
+                  • <strong>Length mode</strong> is faster and cheaper
                 </p>
               </CardContent>
             </Card>
