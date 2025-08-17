@@ -113,3 +113,7 @@ The frontend is optimized for:
 - Port 3000 already in use → Change port in `next.config.mjs`
 - API connection errors → Check backend URL in environment
 - Build failures → Clear `.next` folder and reinstall dependencies
+
+## 📄 License
+
+Apache-2.0 License - see LICENSE file for details.

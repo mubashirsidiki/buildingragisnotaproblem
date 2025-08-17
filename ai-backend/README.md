@@ -233,3 +233,7 @@ uv run pytest modules/RAG/
 - **black**: Code formatting
 - **flake8**: Code linting
 
+## 📄 License
+
+Apache-2.0 License - see LICENSE file for details.
+

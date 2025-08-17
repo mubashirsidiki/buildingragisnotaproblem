@@ -84,7 +84,7 @@ This is an **open-source project** created to help the developer community. Cont
 
 ## 📄 License
 
-MIT License - feel free to use this in your own projects.
+Apache-2.0 License - feel free to use this in your own projects.
 
 ## 💡 Why Open Source?
 
