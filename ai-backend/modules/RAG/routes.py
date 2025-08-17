@@ -192,7 +192,7 @@ async def upload_pdf(
 async def search_chunks(
     query: str = Query(..., description="Search query to find relevant chunks"),
     limit: int = Query(
-        default=5,
+        default=10,
         description="Maximum number of chunks to return"
     ),
     min_cosine_similarity: float = Query(

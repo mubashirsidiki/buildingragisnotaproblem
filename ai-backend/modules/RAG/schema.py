@@ -11,7 +11,7 @@ class UploadResponse(BaseModel):
 
 class QueryRequest(BaseModel):
     query: str
-    limit: Optional[int] = 5
+    limit: Optional[int] = 10
 
 class ChunkResponse(BaseModel):
     id: str

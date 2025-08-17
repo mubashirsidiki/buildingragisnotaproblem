@@ -130,7 +130,7 @@ class PDFRAGService:
     async def vector_search_only(
         self,
         query: str,
-        limit: int = 5,
+        limit: int = 10,
         min_cosine_similarity: float = 0.5,
         min_cross_score: float = 0.0,
         expand_query: bool = True,
@@ -1405,7 +1405,11 @@ class PDFRAGService:
 
             # Apply cross-encoder threshold filter if reranking was used
             if rerank and hasattr(chunk, 'cross_score'):
-                if chunk.cross_score > min_cross_score:  # Remember: lower = more relevant
+                if chunk.cross_score >= min_cross_score:  # Higher score = more relevant
+                    # Keep this chunk (score meets threshold)
+                    pass
+                else:
+                    # Filter out this chunk (score below threshold)
                     filtered_cross_encoder += 1
                     continue
 

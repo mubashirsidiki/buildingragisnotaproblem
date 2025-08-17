@@ -110,8 +110,8 @@ def create_app() -> FastAPI:
         version=CONFIG.version,
         middleware=make_middleware(),
         lifespan=lifespan,
-        docs_url="/docs",
-        redoc_url="/redoc",
+        docs_url="/api/docs",
+        redoc_url="/api/redoc",
     )
     init_routers(app_=app_)
     middleware_handler(app=app_)

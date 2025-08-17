@@ -156,7 +156,7 @@ class ChatService:
         user_message: str, 
         user_id: str, 
         conversation_history: Optional[List[Dict[str, str]]] = None,
-        limit: int = 5,
+        limit: int = 10,
         min_cosine_similarity: float = 0.5,
         min_cross_score: float = 0.0,
         expand_query: bool = True,
@@ -243,7 +243,7 @@ class ChatService:
                 query=search_query,
                 limit=limit,
                 min_cosine_similarity=min_cosine_similarity,
-                min_cross_score=0.0,  # Filter out chunks with cross-encoder score > 0
+                min_cross_score=min_cross_score,
                 expand_query=expand_query,
                 rerank=rerank
             )

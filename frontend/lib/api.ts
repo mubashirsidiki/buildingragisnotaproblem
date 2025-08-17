@@ -150,7 +150,7 @@ export class ApiService {
     // The backend expects a POST request with query parameters in the URL
     const queryParams = new URLSearchParams({
       query,
-      limit: (params.limit || 5).toString(),
+      limit: (params.limit || 10).toString(),
       min_cosine_similarity: (params.min_cosine_similarity || 0.5).toString(),
       min_cross_score: (params.min_cross_score || 0.0).toString(),
       expand_query: (params.expand_query !== undefined ? params.expand_query : true).toString(),

@@ -66,7 +66,7 @@ async def simple_chat_endpoint(request: SimpleChatRequest):
 @API_ROUTER.post("/rag", response_model=RagChatResponse)
 async def rag_chat_endpoint(
     request: RagChatRequest,
-    limit: int = Query(default=5, description="Maximum chunks to retrieve"),
+    limit: int = Query(default=10, description="Maximum chunks to retrieve"),
     min_cosine_similarity: float = Query(default=0.5, description="Minimum cosine similarity threshold"),
     min_cross_score: float = Query(default=0.0, description="Minimum cross-encoder score threshold"),
     expand_query: bool = Query(default=True, description="Enable query expansion"),
