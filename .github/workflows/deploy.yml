@@ -18,6 +18,6 @@ jobs:
           key: ${{ secrets.REMOTE_SSH_PRIVATE_KEY }}
           port: 22
           script: |
-            cd /home/ubuntu/telephonic-ai-v3
+            cd /home/ubuntu/buildingragisnotaproblem
             git pull origin main
             docker compose up -d --build
