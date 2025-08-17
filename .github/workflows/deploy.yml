@@ -1,0 +1,23 @@
+name: Deploy to EC2
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: true
+
+jobs:
+  build_and_push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy on EC2
+        uses: appleboy/ssh-action@v1.2.1
+        with:
+          host: ${{ secrets.REMOTE_HOST }}
+          username: ubuntu
+          key: ${{ secrets.REMOTE_SSH_PRIVATE_KEY }}
+          port: 22
+          script: |
+            cd /home/ubuntu/telephonic-ai-v3
+            git pull origin main
+            docker compose up -d --build
