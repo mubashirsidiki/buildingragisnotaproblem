@@ -11,7 +11,7 @@ services:
     networks:
       - aic
   
-  ai:
+  ai-backend:
     build:
       context: ./ai-backend
       dockerfile: dockerfile
@@ -23,20 +23,6 @@ services:
       - ./ai-backend/.env
     networks:
       - aic
-
-  backend:
-    build:
-      context: ./backend
-      dockerfile: dockerfile
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
-    ports:
-      - "5000:5000"
-    env_file:
-      - ./backend/.env
-    networks:
-      - aic
-
 
 networks:
   aic:
