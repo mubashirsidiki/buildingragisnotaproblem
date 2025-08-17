@@ -13,14 +13,14 @@ services:
   
   ai:
     build:
-      context: ./ai
+      context: ./ai-backend
       dockerfile: dockerfile
     extra_hosts:
       - "host.docker.internal:host-gateway"
     ports:
       - "8000:8000"
     env_file:
-      - ./ai/.env
+      - ./ai-backend/.env
     networks:
       - aic
 
