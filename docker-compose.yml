@@ -3,7 +3,7 @@ services:
   frontend:
     build:
       context: ./frontend
-      dockerfile: dockerfile
+      dockerfile: Dockerfile
     ports:
       - "3000:3000"
     env_file:
@@ -14,7 +14,7 @@ services:
   ai-backend:
     build:
       context: ./ai-backend
-      dockerfile: dockerfile
+      dockerfile: Dockerfile
     extra_hosts:
       - "host.docker.internal:host-gateway"
     ports:

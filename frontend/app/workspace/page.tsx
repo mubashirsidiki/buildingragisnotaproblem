@@ -13,7 +13,6 @@ import { Slider } from "@/components/ui/slider"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { Separator } from "@/components/ui/separator"
 import { Search, MessageSquare, Send, Bot, User, FileText, Trash2, Copy, ChevronDown, ChevronUp } from "lucide-react"
-import Link from "next/link"
 import { searchChunks, simpleChat, ragChat } from "@/lib/api"
 
 interface SearchResult {
@@ -114,7 +113,7 @@ export default function WorkspacePage() {
       if (currentWordIndex < words.length) {
         const currentText = words.slice(0, currentWordIndex + 1).join(' ')
         
-        setChatMessages(prev => {
+        setChatMessages((prev: ChatMessage[]) => {
           const newMessages = [...prev]
           if (newMessages[messageIndex]) {
             newMessages[messageIndex] = { ...newMessages[messageIndex], content: currentText, isTyping: true }
@@ -125,7 +124,7 @@ export default function WorkspacePage() {
         currentWordIndex++
       } else {
         // Finish typing effect
-        setChatMessages(prev => {
+        setChatMessages((prev: ChatMessage[]) => {
           const newMessages = [...prev]
           if (newMessages[messageIndex]) {
             newMessages[messageIndex] = { ...newMessages[messageIndex], content: fullMessage, isTyping: false }
@@ -168,7 +167,7 @@ export default function WorkspacePage() {
       timestamp: new Date(),
     }
 
-    setChatMessages((prev) => [...prev, userMessage])
+    setChatMessages((prev: ChatMessage[]) => [...prev, userMessage])
     setChatInput("")
     setIsChatting(true)
 
@@ -232,7 +231,7 @@ export default function WorkspacePage() {
   }
 
   const toggleSources = (messageIndex: number) => {
-    setExpandedSources(prev => {
+    setExpandedSources((prev: Set<number>) => {
       const newSet = new Set(prev)
       if (newSet.has(messageIndex)) {
         newSet.delete(messageIndex)
