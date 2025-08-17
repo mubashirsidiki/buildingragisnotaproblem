@@ -8,7 +8,7 @@ from .service import chat_service
 from core.logger.logger import LOG
 from config import CONFIG
 
-API_ROUTER = APIRouter(prefix="/api/v1/chat", tags=["Chat"])
+API_ROUTER = APIRouter(prefix="/v1/chat", tags=["Chat"])
 
 @API_ROUTER.post("/", response_model=ChatResponse)
 async def chat_endpoint(request: ChatRequest):

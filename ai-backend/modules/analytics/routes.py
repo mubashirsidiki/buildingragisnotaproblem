@@ -3,7 +3,7 @@ from sqlalchemy.orm import Session
 from core.database import get_db
 from .service import TokenTrackingService
 
-router = APIRouter(prefix="/api/v1/analytics", tags=["Analytics"])
+router = APIRouter(prefix="/v1/analytics", tags=["Analytics"])
 
 @router.get("/usage/{user_id}")
 async def get_user_analytics(user_id: str, db: Session = Depends(get_db)):

@@ -15,7 +15,7 @@ import time
 # ROUTER CONFIGURATION
 # ========================================================================
 
-API_ROUTER = APIRouter(prefix="/api/v1/pdf-rag", tags=["PDF RAG"])
+API_ROUTER = APIRouter(prefix="/v1/pdf-rag", tags=["PDF RAG"])
 
 # ========================================================================
 # PDF UPLOAD AND PROCESSING ENDPOINTS
